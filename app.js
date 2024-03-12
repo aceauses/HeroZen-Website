@@ -13,7 +13,7 @@ const { authenticateToken } = require("./routes/authjwt");
 // const userRoutes = require("./routes/user");
 
 const app = express();
-const port = process.env.PORT || 443; // HTTPS port
+const port = process.env.PORT || 443;
 const httpPort = 80; // Standard HTTP port
 
 // SSL/TLS Configuration
