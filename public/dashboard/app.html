@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <link rel="stylesheet" href="./app-styles.css">
+</head>
+<body>
+  <div class="app-dashboard">
+    <header>
+      <h1>Your Dashboard</h1>
+    </header>
+    <main>
+          <div class="app-dashboard">
+            <div id="admin-panel-container">
+             </div>
+        
+            <div class="subscription-info">
+              <h2>Subscription Status</h2>
+              <p id="days-remaining" class="days-remaining"></p>
+              <div class="button-group">
+                <button class="normal-button" id="renew-button">Renew</button>
+                <button class="normal-button" id="redeem-button">Redeem</button>
+              </div>
+            </div>
+
+            <div id="redeemDialog" class="dialog">
+              <div class="dialog-content">
+                <span class="close-button">&times;</span>
+                <h3 class="dialog-title">Redeem License</h3>
+                <form id="redeemForm" class="redeem-form">
+                  <div class="form-group">
+                    <label for="licenseKey" class="form-label">License Key:</label>
+                    <input type="text" id="licenseKeyInput" name="licenseKeyInput" class="form-input" placeholder="Enter license key" required>
+                  </div>
+                  <button class="normal-button" type="submit" class="btn btn-primary">Redeem</button>
+                </form>
+                <p id="redeemMessage" class="redeem-message"></p>
+              </div>
+            </div>
+        
+            <div class="latest-news">
+              <h2>Latest News</h2>
+            </div>
+            <button id="logoutBtn" class="logout-button">Logout</button>
+    </main>
+    <footer>
+      <p>&copy; HeroZen 2023</p>
+    </footer>
+  </div>
+  <script src="./app-script.js" type="module"></script>
+</body>
+</html>

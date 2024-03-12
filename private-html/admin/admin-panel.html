@@ -1,0 +1,39 @@
+<div class="admin-panel">
+  <h2>Admin Panel</h2>
+  <div class="button-group">
+    <button class="normal-button" id="genLicense">Generate Licenses</button>
+    <button class="normal-button" id="resetHWID">Reset HWID</button>
+  </div>
+  <div class="button-group">
+    <button class="normal-button" id="banUser">Ban User</button>
+    <button class="normal-button" id="unbanUser">Unban User</button>
+  </div>
+</div>
+
+<div id="licenseDialog" class="dialog">
+  <div class="dialog-content">
+    <span class="close-button">&times;</span>
+    <h3 class="dialog-title">Generate License</h3>
+    <form id="licenseForm" class="license-form">
+      <div class="form-group">
+        <label for="adminUsername" class="form-label">Admin Username:</label>
+        <input type="text" id="adminUsername" name="Ausername" class="form-input" placeholder="Admin" required>
+      </div>
+      <div class="form-group">
+        <label for="adminPassword" class="form-label">Admin Password:</label>
+        <input type="password" id="adminPassword" name="password" class="form-input" placeholder="••••••••••••" required>
+      </div>
+      <div class="form-group">
+        <label for="username" class="form-label">User (Optional):</label>
+        <input type="text" id="username" name="username" class="form-input" placeholder="User (Optional)">
+      </div>
+      <div class="form-group">
+        <label for="days" class="form-label">Days:</label>
+        <input type="number" id="days" name="days" min="1" class="form-input" placeholder="Days" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Generate License</button>
+    </form>
+    <p id="licenseKey" class="license-key"></p>
+    <button class="btn btn-secondary">Redeem</button>
+  </div>
+</div>

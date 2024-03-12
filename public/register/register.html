@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <form id="registration-form">
+      <h2>Register</h2>
+      <input type="text" id="username" placeholder="Username" required minlength="4">
+      <input type="password" id="password" placeholder="Password" required minlength="6">
+      <p id="error-message"></p> <button type="submit">Register</button>
+    </form>
+    <!-- Return to main menu Button -->
+    <button id="return-button">Return to main menu</button>
+  </div>
+
+  <script src="./register.js"></script>
+</body>
+</html>

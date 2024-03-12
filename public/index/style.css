@@ -1,0 +1,110 @@
+/* General body styling */
+body {
+  background-color: #222;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Droplet styles */
+.droplet {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #7289DA;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dropletFall 5s linear infinite;
+}
+
+.droplet1 {
+  animation-delay: 0s;
+}
+
+.droplet2 {
+  animation-delay: 0.2s;
+}
+
+.droplet3 {
+  animation-delay: 0.4s;
+}
+
+/* Animation */
+@keyframes dropletFall {
+  0% {
+    top: -20px;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 110vh;
+    opacity: 0;
+  }
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 35px;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(49, 49, 49, 0.8);
+  padding: 60px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #4c4c4c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.4s ease;
+}
+
+button:hover {
+  background-color: #7289DA;
+}
+
+.buttons button {
+    transition: background-color 0.4s ease;
+    border-radius: 10px;
+}
+
+/* Return to the main page button */
+#return-button {
+  margin-top: 20px;
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #4c4c4c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.4s ease;
+}
+
+#return-button:hover {
+  background-color: #7289DA;
+}
+
+#error-message {
+  color: red;
+  margin-top: 10px;
+}

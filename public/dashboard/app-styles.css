@@ -1,0 +1,295 @@
+body {
+    background-color: #0c0c0c;
+    /* Very dark gray */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.days-remaining {
+    color: #ffffff;
+}
+
+.app-dashboard {
+    max-width: 800px;
+    padding: 2rem;
+    background-color: #1a1a1a;
+    z-index: 1;
+    /* Dark gray */
+    font-family: Arial, sans-serif;
+    border-radius: 10px;
+}
+
+.admin-panel {
+    background-color: #141414;
+    /* Even darker gray for the admin panel */
+    color: #3498db;
+    /* Blue text color */
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+.admin-panel h2 {
+    margin-top: 0;
+}
+/* Dialog overlay styles */
+.dialog {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.dialog-content {
+    background-color: #f5f5f5;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.close-button {
+    color: #888;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.dialog-title {
+    margin-top: 0;
+    color: #333;
+}
+
+.license-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #5a4dff;
+}
+
+.btn-secondary {
+    background-color: #e6e6e6;
+    color: #333;
+    border: none;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #d9d9d9;
+}
+
+.license-key {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+
+.logout-button {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.redeem-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.redeem-message {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+.subscription-info,
+.latest-news {
+    background-color: #212121;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(70, 141, 248, 0.527);
+    margin-bottom: 2rem;
+}
+
+.subscription-info h2, .latest-news h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.normal-button {
+    background: linear-gradient(45deg, #0d47a1, #1e88e5);
+    /* Blue gradient */
+    border: none;
+    color: #ffffff;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: all 0.5s;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Droplet styles */
+.droplet {
+    position: absolute;
+    width: 2px;
+    height: 5px;
+    background-color: rgb(66, 95, 202);
+    border-radius: 50%;
+    opacity: 0;
+    animation: dropletFall 5s linear infinite;
+}
+
+.droplet1 {
+    animation-delay: 0s;
+}
+
+.droplet2 {
+    animation-delay: 0.2s;
+}
+
+.droplet3 {
+    animation-delay: 0.4s;
+}
+
+/* Animation */
+@keyframes dropletFall {
+    0% {
+        top: -20px;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 90vh;
+        opacity: 0;
+    }
+}
+
+/* Button Hover Effects */
+.normal-button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.65s;
+}
+
+.normal-button:hover:before {
+    left: 100%;
+}
+
+.normal-button:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    transform: scale(1.05);
+}
+
+/* Pulsating Effect */
+@keyframes pulsate {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+}
+
+.normal-button:hover {
+    animation: pulsate 1s infinite;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: #666;
+}
