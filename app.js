@@ -9,6 +9,7 @@ const authRoutes = require("./routes/auth");
 const licenseRoutes = require("./routes/license");
 const appRoutes = require("./routes/application");
 const appAuthjwt  = require("./routes/authjwt");
+const apiRoutes = require("./routes/api");
 const { authenticateToken } = require("./routes/authjwt");
 // const userRoutes = require("./routes/user");
 
@@ -36,6 +37,7 @@ app.use("/auth", authRoutes);
 app.use("/license", licenseRoutes);
 app.use("/app", appRoutes);
 app.use("/secure", appAuthjwt);
+app.use("/api", apiRoutes);
 // app.use("/user", userRoutes);
 
 
@@ -52,7 +54,7 @@ app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/public/login/login.html");
 });
 
-app.get("/dashboard", (req, res) => {
+app.get("/dashboard", authenticateToken, (req, res) => {
   res.sendFile(__dirname + "/public/dashboard/app.html");
 });
 // ... Error handling middleware (if needed) ...

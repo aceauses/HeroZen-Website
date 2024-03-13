@@ -1,13 +1,18 @@
 <div class="admin-panel">
   <h2>Admin Panel</h2>
   <div class="button-group">
-    <button class="normal-button" id="genLicense">Generate Licenses</button>
-    <button class="normal-button" id="resetHWID">Reset HWID</button>
+    <button class="admin-button" id="genLicense">Generate Licenses</button>
+    <button class="admin-button" id="resetHWID">Reset HWID</button>
   </div>
-  <div class="button-group">
-    <button class="normal-button" id="banUser">Ban User</button>
-    <button class="normal-button" id="unbanUser">Unban User</button>
+  <div class="button-group_1">
+    <button class="admin-button" id="banUser">Ban User</button>
+    <button class="admin-button" id="unbanUser">Unban User</button>
   </div>
+  <div class="button-group_2">
+    <button class="admin-button" id="makeAdmin">Make Admin</button>
+    <button class="admin-button" id="unbanUser">XXXX</button>
+  </div>
+</div>
 </div>
 
 <div id="licenseDialog" class="dialog">
@@ -34,6 +39,32 @@
       <button type="submit" class="btn btn-primary">Generate License</button>
     </form>
     <p id="licenseKey" class="license-key"></p>
-    <button class="btn btn-secondary">Redeem</button>
   </div>
 </div>
+
+<style>
+  .admin-button {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .admin-button:hover {
+    background-color: #ff7f7f;
+    transform: scale(1.05);
+  }
+
+  .admin-button:active {
+    background-color: #ff2626;
+    transform: scale(0.95);
+  }
+</style>

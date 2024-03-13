@@ -5,7 +5,8 @@ returntoMain.addEventListener("click", () => {
   window.location.href = "/";
 });
 
-const allowedCharacters = /^[a-zA-Z0-9]+$/;
+// Allowed character to be Number, Letter, and special characters
+const allowedCharacters = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/;
 
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();

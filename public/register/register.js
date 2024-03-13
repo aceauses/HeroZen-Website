@@ -5,7 +5,7 @@ returntoMain.addEventListener('click', () => {
   window.location.href = "/";
 });
 
-const allowedCharacters = /^[a-zA-Z0-9]+$/;
+const allowedCharacters = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]+$/;
 
 registrationForm.addEventListener("submit", (event) => {
   event.preventDefault();

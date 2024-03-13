@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const { isUserBanned, isAdmin, validateAdminPassword } = require("./user.js");
 const { generateUniqueLicenseKey } = require("../utils/licenseKeyGen.js");
+const { authenticateToken } = require("./authjwt.js");
 
 // /redeem endpoint
 router.post("/redeem", async (req, res) => {
@@ -60,7 +61,7 @@ router.post("/redeem", async (req, res) => {
 });
 
 // /create_license endpoint
-router.post("/create_license", async (req, res) => {
+router.post("/create_license", authenticateToken, async (req, res) => {
 
   const { days, username, Ausername, password } = req.body;
 

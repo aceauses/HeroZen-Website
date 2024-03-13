@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const { db } = require("../database/database"); // Import 'db' from database.js
 // const { banUserForHwidFails } = require("./user");
 const jwt = require('jsonwebtoken'); // Install 'jsonwebtoken' package 
+const { authenticateToken } = require("./authjwt");
 
 
 // /login (POST) endpoint WEB APP
@@ -126,9 +127,8 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/subcheck", async (req, res) => {
-  const { username } = req.body;
-
+router.post("/subcheck", authenticateToken, async (req, res) => {
+  const username = req.user.username;
   if (!username) {
     return res.status(400).json({ error: "Username is required" });
   }

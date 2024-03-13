@@ -28,22 +28,41 @@ function authenticateToken(req, res, next) {
 
 // Protected route
 router.post("/verify", authenticateToken, (req, res) => {
-    res.json({
-      message: "Token valid",
-      user: {
-        username: req.user.username,
-        isAdmin: req.user.isAdmin,
-      },
-    });
+  res.json({
+    message: "Token valid",
+    user: {
+      username: req.user.username,
+      isAdmin: req.user.isAdmin,
+    },
+  });
 });
 
 router.get("/admin-panel", authenticateToken, (req, res) => {
   if (!req.user.isAdmin) {
     res.status(403).json({ error: "Forbidden" });
   } else {
-    const adminPanelHTML = fs.readFileSync("/root/Javascript/private-html/admin/admin-panel.html");
-    res.send(adminPanelHTML);
+    const adminPanelHTML = fs.readFileSync(
+      "/root/Javascript/private-html/admin/admin-panel.html",
+      "utf8"
+    );
+
+    res.type("text/html"); // Indicate that the response is HTML
+    res.send(`
+      ${adminPanelHTML}
+    `);
   }
+});
+
+router.get("/admin-panel-script", authenticateToken, (req, res) => {
+  if (!req.user.isAdmin) {
+    res.status(403).json({ error: "Forbidden" });
+  }
+  const adminPanelJS = fs.readFileSync(
+    "/root/Javascript/private-html/admin/admin-panel.js",
+    "utf8"
+  );
+  res.type("application/javascript"); // Indicate that the response is JavaScript
+  res.send(adminPanelJS);
 });
 
 router.post("/redeem", authenticateToken, async (req, res) => {
