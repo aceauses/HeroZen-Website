@@ -156,6 +156,13 @@ router.post("/subcheck", authenticateToken, async (req, res) => {
     if (user.active_sub) {
       const remainingSub = user.sub_duration - Date.now();
       const remainingDays = Math.floor(remainingSub / (1000 * 60 * 60 * 24)); // Calculate days
+      if (user.sub_duration < Date.now()) {
+        db.run(
+          "UPDATE users SET active_sub = 0, sub_start = 0, sub_duration = -1 WHERE username = ?",
+          [username]
+        );
+        return res.status(409).json({ error: "Subscription has expired" });
+      }
 
       res.json({ message: "User has an active subscription", remainingDays });
     } else {
